@@ -315,278 +315,278 @@ function conikal_pdo_vc_products_shortcode() {
         'admin_enqueue_css' => plugin_dir_url( __FILE__ ) . 'vc_extend/bartag.css',
         "icon" => plugin_dir_url( __FILE__ ) . 'images/product-outside-icon.svg',
         "params" => array_merge(
-        array(
             array(
-                "type" => 'textfield',
-                "holder" => 'div',
-                "class" => '',
-                "heading" => esc_html__('Title', 'product-outside'),
-                "param_name" => 'title',
-                "value" => 'Product Outside',
-                "description" => esc_html__('Title of Section', 'product-outside')
-            ),
-            array(
-                "type" => 'checkbox',
-                "holder" => 'div',
-                "class" => '',
-                "heading" => esc_html__('Display Title', 'product-outside'),
-                "param_name" => 'display_title',
-                "description" => esc_html__('Show title above products or not.', 'product-outside')
-            ),
-            array(
-                "type" => 'dropdown',
-                "holder" => 'div',
-                "class" => '',
-                "heading" => esc_html__('Render Method', 'product-outside'),
-                "param_name" => 'method',
-                "value" => array(
-                    esc_html__('Client Side Render', 'product-outside') => 'client',
-                     esc_html__('Server Side Render', 'product-outside') => 'server',
-                    ),
-                "std" => 'desc',
-                "description" => esc_html__('Ways to rendering product via ajax loading or php.', 'product-outside')
-            ),
-            array(
-                "type" => 'textfield',
-                "holder" => 'div',
-                "class" => '',
-                "heading" => esc_html__('Page', 'product-outside'),
-                "param_name" => 'page',
-                "value" => 1,
-                "description" => esc_html__('Current page of the collection.', 'product-outside')
-            ),
-            array(
-                "type" => 'textfield',
-                "holder" => 'div',
-                "class" => '',
-                "heading" => esc_html__('Per page', 'product-outside'),
-                "param_name" => 'per_page',
-                "value" => 6,
-                "description" => esc_html__('The "per_page" shortcode determines how many products to show on the page', 'product-outside')
-            ),
-            array(
-                "type" => 'textfield',
-                "holder" => 'div',
-                "class" => '',
-                "heading" => esc_html__('Search', 'product-outside'),
-                "param_name" => 'search',
-                "value" => '',
-                "description" => esc_html__('Limit results to those matching a string.', 'product-outside')
-            ),
-            array(
-                "type" => 'textfield',
-                "holder" => 'div',
-                "class" => '',
-                "heading" => esc_html__('After', 'product-outside'),
-                "param_name" => 'after',
-                "value" => '',
-                "description" => esc_html__('Limit response to resources published after a given ISO8601 compliant date.', 'product-outside')
-            ),
-            array(
-                "type" => 'textfield',
-                "holder" => 'div',
-                "class" => '',
-                "heading" => esc_html__('Before', 'product-outside'),
-                "param_name" => 'before',
-                "value" => '',
-                "description" => esc_html__('Limit response to resources published before a given ISO8601 compliant date.', 'product-outside')
-            ),
-            array(
-                "type" => 'textfield',
-                "holder" => 'div',
-                "class" => '',
-                "heading" => esc_html__('Exclude (separated by commas)', 'product-outside'),
-                "param_name" => 'exclude',
-                "value" => '',
-                "description" => esc_html__('Ensure result set excludes specific IDs.', 'product-outside')
-            ),
-            array(
-                "type" => 'textfield',
-                "holder" => 'div',
-                "class" => '',
-                "heading" => esc_html__('Include (separated by commas)', 'product-outside'),
-                "param_name" => 'include',
-                "value" => '',
-                "description" => esc_html__('Limit result set to specific ids.', 'product-outside')
-            ),
-            array(
-                "type" => 'textfield',
-                "holder" => 'div',
-                "class" => '',
-                "heading" => esc_html__('Offset', 'product-outside'),
-                "param_name" => 'offset',
-                "value" => '',
-                "description" => esc_html__('Offset the result set by a specific number of items.', 'product-outside')
-            ),
-            array(
-                "type" => 'dropdown',
-                "holder" => 'div',
-                "class" => '',
-                "heading" => esc_html__('Order', 'product-outside'),
-                "param_name" => 'order',
-                "value" => array(
-                    esc_html__('Ascending', 'product-outside') => 'asc',
-                     esc_html__('Descending', 'product-outside') => 'desc',
-                    ),
-                "std" => 'desc',
-                "description" => esc_html__('Order sort attribute ascending or descending.', 'product-outside')
-            ),
-            array(
-                "type" => 'dropdown',
-                "holder" => 'div',
-                "class" => '',
-                "heading" => esc_html__('Order by', 'product-outside'),
-                "param_name" => 'orderby',
-                "value" => array(
-                    esc_html__('Date', 'product-outside') => 'date',
-                    esc_html__('ID', 'product-outside') => 'id',
-                    esc_html__('Include', 'product-outside') => 'include',
-                    esc_html__('Title', 'product-outside') => 'title',
-                    esc_html__('Slug', 'product-outside') => 'slug',
+                array(
+                    "type" => 'textfield',
+                    "holder" => 'div',
+                    "class" => '',
+                    "heading" => esc_html__('Title', 'product-outside'),
+                    "param_name" => 'title',
+                    "value" => 'Product Outside',
+                    "description" => esc_html__('Title of Section', 'product-outside')
                 ),
-                "std" => 'date',
-                "description" => esc_html__('Sort collection by object attribute.', 'product-outside')
-            ),
-            array(
-                "type" => 'textfield',
-                "holder" => 'div',
-                "class" => '',
-                "heading" => esc_html__('Slug', 'product-outside'),
-                "param_name" => 'slug',
-                "value" => '',
-                "description" => esc_html__('Limit result set to products with a specific slug.', 'product-outside')
-            ),
-            array(
-                "type" => 'dropdown',
-                "holder" => 'div',
-                "class" => '',
-                "heading" => esc_html__('Status', 'product-outside'),
-                "param_name" => 'status',
-                "value" => array(
-                    esc_html__('Any', 'product-outside') => 'any',
-                    esc_html__('Publish', 'product-outside') => 'publish',
-                    esc_html__('Draft', 'product-outside') => 'draft',
-                    esc_html__('Pending', 'product-outside') => 'pending',
-                    esc_html__('Private', 'product-outside') => 'private',
+                array(
+                    "type" => 'checkbox',
+                    "holder" => 'div',
+                    "class" => '',
+                    "heading" => esc_html__('Display Title', 'product-outside'),
+                    "param_name" => 'display_title',
+                    "description" => esc_html__('Show title above products or not.', 'product-outside')
                 ),
-                "std" => 'publish',
-                "description" => esc_html__('Limit result set to products assigned a specific status.', 'product-outside')
-            ),
-            array(
-                "type" => 'dropdown',
-                "holder" => 'div',
-                "class" => '',
-                "heading" => esc_html__('Type', 'product-outside'),
-                "param_name" => 'type',
-                "value" => array(
-                    esc_html__('Any', 'product-outside') => 'any',
-                    esc_html__('Simple', 'product-outside') => 'simple',
-                    esc_html__('External', 'product-outside') => 'external',
-                    esc_html__('Variable', 'product-outside') => 'variable',
+                array(
+                    "type" => 'dropdown',
+                    "holder" => 'div',
+                    "class" => '',
+                    "heading" => esc_html__('Render Method', 'product-outside'),
+                    "param_name" => 'method',
+                    "value" => array(
+                        esc_html__('Client Side Render', 'product-outside') => 'client',
+                         esc_html__('Server Side Render', 'product-outside') => 'server',
+                        ),
+                    "std" => 'desc',
+                    "description" => esc_html__('Ways to rendering product via ajax loading or php.', 'product-outside')
+                ),
+                array(
+                    "type" => 'textfield',
+                    "holder" => 'div',
+                    "class" => '',
+                    "heading" => esc_html__('Page', 'product-outside'),
+                    "param_name" => 'page',
+                    "value" => 1,
+                    "description" => esc_html__('Current page of the collection.', 'product-outside')
+                ),
+                array(
+                    "type" => 'textfield',
+                    "holder" => 'div',
+                    "class" => '',
+                    "heading" => esc_html__('Per page', 'product-outside'),
+                    "param_name" => 'per_page',
+                    "value" => 6,
+                    "description" => esc_html__('The "per_page" shortcode determines how many products to show on the page', 'product-outside')
+                ),
+                array(
+                    "type" => 'textfield',
+                    "holder" => 'div',
+                    "class" => '',
+                    "heading" => esc_html__('Search', 'product-outside'),
+                    "param_name" => 'search',
+                    "value" => '',
+                    "description" => esc_html__('Limit results to those matching a string.', 'product-outside')
+                ),
+                array(
+                    "type" => 'textfield',
+                    "holder" => 'div',
+                    "class" => '',
+                    "heading" => esc_html__('After', 'product-outside'),
+                    "param_name" => 'after',
+                    "value" => '',
+                    "description" => esc_html__('Limit response to resources published after a given ISO8601 compliant date.', 'product-outside')
+                ),
+                array(
+                    "type" => 'textfield',
+                    "holder" => 'div',
+                    "class" => '',
+                    "heading" => esc_html__('Before', 'product-outside'),
+                    "param_name" => 'before',
+                    "value" => '',
+                    "description" => esc_html__('Limit response to resources published before a given ISO8601 compliant date.', 'product-outside')
+                ),
+                array(
+                    "type" => 'textfield',
+                    "holder" => 'div',
+                    "class" => '',
+                    "heading" => esc_html__('Exclude (separated by commas)', 'product-outside'),
+                    "param_name" => 'exclude',
+                    "value" => '',
+                    "description" => esc_html__('Ensure result set excludes specific IDs.', 'product-outside')
+                ),
+                array(
+                    "type" => 'textfield',
+                    "holder" => 'div',
+                    "class" => '',
+                    "heading" => esc_html__('Include (separated by commas)', 'product-outside'),
+                    "param_name" => 'include',
+                    "value" => '',
+                    "description" => esc_html__('Limit result set to specific ids.', 'product-outside')
+                ),
+                array(
+                    "type" => 'textfield',
+                    "holder" => 'div',
+                    "class" => '',
+                    "heading" => esc_html__('Offset', 'product-outside'),
+                    "param_name" => 'offset',
+                    "value" => '',
+                    "description" => esc_html__('Offset the result set by a specific number of items.', 'product-outside')
+                ),
+                array(
+                    "type" => 'dropdown',
+                    "holder" => 'div',
+                    "class" => '',
+                    "heading" => esc_html__('Order', 'product-outside'),
+                    "param_name" => 'order',
+                    "value" => array(
+                        esc_html__('Ascending', 'product-outside') => 'asc',
+                         esc_html__('Descending', 'product-outside') => 'desc',
+                        ),
+                    "std" => 'desc',
+                    "description" => esc_html__('Order sort attribute ascending or descending.', 'product-outside')
+                ),
+                array(
+                    "type" => 'dropdown',
+                    "holder" => 'div',
+                    "class" => '',
+                    "heading" => esc_html__('Order by', 'product-outside'),
+                    "param_name" => 'orderby',
+                    "value" => array(
+                        esc_html__('Date', 'product-outside') => 'date',
+                        esc_html__('ID', 'product-outside') => 'id',
+                        esc_html__('Include', 'product-outside') => 'include',
+                        esc_html__('Title', 'product-outside') => 'title',
+                        esc_html__('Slug', 'product-outside') => 'slug',
                     ),
-                "std" => 'any',
-                "description" => esc_html__('Limit result set to products assigned a specific type.', 'product-outside')
-            ),
-            array(
-                "type" => 'textfield',
-                "holder" => 'div',
-                "class" => '',
-                "heading" => esc_html__('SKU', 'product-outside'),
-                "param_name" => 'sku',
-                "value" => '',
-                "description" => esc_html__('Limit result set to products with a specific SKU.', 'product-outside')
-            ),
-            array(
-                "type" => 'dropdown',
-                "holder" => 'div',
-                "class" => '',
-                "heading" => esc_html__('Category', 'product-outside'),
-                "param_name" => 'category',
-                "value" => $category_seclection,
-                "std" => 'any',
-                "description" => esc_html__('Limit result set to products assigned a specific category ID.', 'product-outside')
-            ),
-            array(
-                "type" => 'textfield',
-                "holder" => 'div',
-                "class" => '',
-                "heading" => esc_html__('Tag ID (separated by commas)', 'product-outside'),
-                "param_name" => 'tag',
-                "value" => '',
-                "description" => esc_html__('Limit result set to products assigned a specific tag ID.', 'product-outside')
-            ),
-            array(
-                "type" => 'textfield',
-                "holder" => 'div',
-                "class" => '',
-                "heading" => esc_html__('Minimum Price', 'product-outside'),
-                "param_name" => 'min_price',
-                "value" => '',
-                "description" => esc_html__('Limit result set to products based on a minimum price.', 'product-outside')
-            ),
-            array(
-                "type" => 'textfield',
-                "holder" => 'div',
-                "class" => '',
-                "heading" => esc_html__('Maximum Price', 'product-outside'),
-                "param_name" => 'max_price',
-                "value" => '',
-                "description" => esc_html__('Limit result set to products based on a maximum price.', 'product-outside')
-            ),
-            array(
-                "type" => 'checkbox',
-                "holder" => 'div',
-                "class" => '',
-                "heading" => esc_html__('On Sale', 'product-outside'),
-                "param_name" => 'on_sale',
-                "description" => esc_html__('Limit result set to products on sale.', 'product-outside')
-            ),
-            array(
-                "type" => 'checkbox',
-                "holder" => 'div',
-                "class" => '',
-                "heading" => esc_html__('Featured', 'product-outside'),
-                "param_name" => 'featured',
-                "description" => esc_html__('Limit result set to featured products.', 'product-outside')
-            ),
-            array(
-                "type" => 'checkbox',
-                "holder" => 'div',
-                "class" => '',
-                "heading" => esc_html__('Open in New Tab', 'product-outside'),
-                "param_name" => 'new_tab',
-                "description" => esc_html__('Open in new tab when click on product link.', 'product-outside')
-            ),
-            array(
-                "type" => 'checkbox',
-                "holder" => 'div',
-                "class" => '',
-                "heading" => esc_html__('Load more button', 'product-outside'),
-                "param_name" => 'load_more',
-                "description" => esc_html__('Display load more button below products list', 'product-outside'),
-            ),
-            array(
-                "type" => 'dropdown',
-                "holder" => 'div',
-                "class" => '',
-                "heading" => esc_html__('Stock status', 'product-outside'),
-                "param_name" => 'stock_status',
-                "value" => array(
-                    esc_html__('Any', 'product-outside') => 'any',
-                    esc_html__('Instock', 'product-outside') => 'instock',
-                    esc_html__('Outofstock', 'product-outside') => 'outofstock',
-                    esc_html__('Onbackorder', 'product-outside') => 'onbackorder',
+                    "std" => 'date',
+                    "description" => esc_html__('Sort collection by object attribute.', 'product-outside')
+                ),
+                array(
+                    "type" => 'textfield',
+                    "holder" => 'div',
+                    "class" => '',
+                    "heading" => esc_html__('Slug', 'product-outside'),
+                    "param_name" => 'slug',
+                    "value" => '',
+                    "description" => esc_html__('Limit result set to products with a specific slug.', 'product-outside')
+                ),
+                array(
+                    "type" => 'dropdown',
+                    "holder" => 'div',
+                    "class" => '',
+                    "heading" => esc_html__('Status', 'product-outside'),
+                    "param_name" => 'status',
+                    "value" => array(
+                        esc_html__('Any', 'product-outside') => 'any',
+                        esc_html__('Publish', 'product-outside') => 'publish',
+                        esc_html__('Draft', 'product-outside') => 'draft',
+                        esc_html__('Pending', 'product-outside') => 'pending',
+                        esc_html__('Private', 'product-outside') => 'private',
                     ),
-                "std" => 'any',
-                "description" => esc_html__('Limit result set to products with specified stock status.', 'product-outside')
+                    "std" => 'publish',
+                    "description" => esc_html__('Limit result set to products assigned a specific status.', 'product-outside')
+                ),
+                array(
+                    "type" => 'dropdown',
+                    "holder" => 'div',
+                    "class" => '',
+                    "heading" => esc_html__('Type', 'product-outside'),
+                    "param_name" => 'type',
+                    "value" => array(
+                        esc_html__('Any', 'product-outside') => 'any',
+                        esc_html__('Simple', 'product-outside') => 'simple',
+                        esc_html__('External', 'product-outside') => 'external',
+                        esc_html__('Variable', 'product-outside') => 'variable',
+                        ),
+                    "std" => 'any',
+                    "description" => esc_html__('Limit result set to products assigned a specific type.', 'product-outside')
+                ),
+                array(
+                    "type" => 'textfield',
+                    "holder" => 'div',
+                    "class" => '',
+                    "heading" => esc_html__('SKU', 'product-outside'),
+                    "param_name" => 'sku',
+                    "value" => '',
+                    "description" => esc_html__('Limit result set to products with a specific SKU.', 'product-outside')
+                ),
+                array(
+                    "type" => 'dropdown',
+                    "holder" => 'div',
+                    "class" => '',
+                    "heading" => esc_html__('Category', 'product-outside'),
+                    "param_name" => 'category',
+                    "value" => $category_seclection,
+                    "std" => 'any',
+                    "description" => esc_html__('Limit result set to products assigned a specific category ID.', 'product-outside')
+                ),
+                array(
+                    "type" => 'textfield',
+                    "holder" => 'div',
+                    "class" => '',
+                    "heading" => esc_html__('Tag ID (separated by commas)', 'product-outside'),
+                    "param_name" => 'tag',
+                    "value" => '',
+                    "description" => esc_html__('Limit result set to products assigned a specific tag ID.', 'product-outside')
+                ),
+                array(
+                    "type" => 'textfield',
+                    "holder" => 'div',
+                    "class" => '',
+                    "heading" => esc_html__('Minimum Price', 'product-outside'),
+                    "param_name" => 'min_price',
+                    "value" => '',
+                    "description" => esc_html__('Limit result set to products based on a minimum price.', 'product-outside')
+                ),
+                array(
+                    "type" => 'textfield',
+                    "holder" => 'div',
+                    "class" => '',
+                    "heading" => esc_html__('Maximum Price', 'product-outside'),
+                    "param_name" => 'max_price',
+                    "value" => '',
+                    "description" => esc_html__('Limit result set to products based on a maximum price.', 'product-outside')
+                ),
+                array(
+                    "type" => 'checkbox',
+                    "holder" => 'div',
+                    "class" => '',
+                    "heading" => esc_html__('On Sale', 'product-outside'),
+                    "param_name" => 'on_sale',
+                    "description" => esc_html__('Limit result set to products on sale.', 'product-outside')
+                ),
+                array(
+                    "type" => 'checkbox',
+                    "holder" => 'div',
+                    "class" => '',
+                    "heading" => esc_html__('Featured', 'product-outside'),
+                    "param_name" => 'featured',
+                    "description" => esc_html__('Limit result set to featured products.', 'product-outside')
+                ),
+                array(
+                    "type" => 'checkbox',
+                    "holder" => 'div',
+                    "class" => '',
+                    "heading" => esc_html__('Open in New Tab', 'product-outside'),
+                    "param_name" => 'new_tab',
+                    "description" => esc_html__('Open in new tab when click on product link.', 'product-outside')
+                ),
+                array(
+                    "type" => 'checkbox',
+                    "holder" => 'div',
+                    "class" => '',
+                    "heading" => esc_html__('Load more button', 'product-outside'),
+                    "param_name" => 'load_more',
+                    "description" => esc_html__('Display load more button below products list', 'product-outside'),
+                ),
+                array(
+                    "type" => 'dropdown',
+                    "holder" => 'div',
+                    "class" => '',
+                    "heading" => esc_html__('Stock status', 'product-outside'),
+                    "param_name" => 'stock_status',
+                    "value" => array(
+                        esc_html__('Any', 'product-outside') => 'any',
+                        esc_html__('Instock', 'product-outside') => 'instock',
+                        esc_html__('Outofstock', 'product-outside') => 'outofstock',
+                        esc_html__('Onbackorder', 'product-outside') => 'onbackorder',
+                        ),
+                    "std" => 'any',
+                    "description" => esc_html__('Limit result set to products with specified stock status.', 'product-outside')
+                ),
             ),
+            conikal_column_responsive(array(
+                'element'=>'layout_style',
+                'value'=>array('grid')
+            )),
         ),
-        conikal_column_responsive(array(
-            'element'=>'layout_style',
-            'value'=>array('grid')
-        )),
-    )
-   ) );
+    ) );
 }
 
 ?>

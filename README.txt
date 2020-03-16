@@ -8,7 +8,6 @@ Stable tag: 1.0.2s
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-YITH WooCommerce Compare allows you to compare more products of your shop in one complete table.
 WooCommerce Compatible up to 3.9
 
 == Description ==
