@@ -85,7 +85,7 @@ function conikal_column_responsive($dependency = array())
 
 
 /**
- * Featured petitions shortcode
+ * Product Outside shortcode
  */
 if( !function_exists('conikal_pdo_products_shortcode') ): 
     function conikal_pdo_products_shortcode($attrs, $content = null) {
@@ -115,6 +115,7 @@ if( !function_exists('conikal_pdo_products_shortcode') ):
             'max_price' => '',
             'stock_status' => 'any',
             'new_tab' => false,
+            'load_more' => false,
             'columns' => '3',
             'columns_md' => '2',
             'columns_sm' => '2',
@@ -175,9 +176,11 @@ if( !function_exists('conikal_pdo_products_shortcode') ):
 
         if ($method == 'server') {
             $woocommerce    = conikal_woocommerce_api();
-            $products       = $woocommerce->get('products', $args);
-            $system_status  = $woocommerce->get('system_status');
-            $price_args     = conikal_pdo_price_settings($system_status);
+            if ($woocommerce) {
+               $products       = $woocommerce->get('products', $args);
+                $system_status  = $woocommerce->get('system_status');
+                $price_args     = conikal_pdo_price_settings($system_status); 
+            }
         } else {
             wp_nonce_field('product_outside_ajax_nonce', 'securityProductOuside', true);
         }
@@ -207,7 +210,8 @@ if( !function_exists('conikal_pdo_products_shortcode') ):
 <?php endif; ?>
 <div id="product-outside-<?php echo esc_attr(sanitize_title($title)) ?>" data-id="<?php echo esc_attr(sanitize_title($title)) ?>" data-items-container="true" class="gf-blog-inner clearfix layout-grid gf-gutter-30 <?php echo esc_attr($method == 'client' ? 'product-outside' : '') ?>" data-args='<?php echo json_encode($args) ?>' data-classes="<?php echo esc_attr($classes) ?>" data-newt="<?php echo esc_attr($new_tab ? 1 : 0) ?>">
 <?php  if ($method == 'server') :
- foreach ($products as $id => $product) { ?>
+    if ($woocommerce) :
+        foreach ($products as $id => $product) { ?>
     <article class="clearfix product-item-wrap product-content-product <?php echo esc_attr($classes) ?>product type-product post-2130 status-publish first instock product_cat-91 product_tag-93 product_tag-92 has-post-thumbnail shipping-taxable purchasable product-type-simple product-small">
         <div class="product-item-inner clearfix">
             <div class="product-thumb">
@@ -257,12 +261,23 @@ if( !function_exists('conikal_pdo_products_shortcode') ):
             </div>
         </div>
     </article>
-<?php }
-    endif; ?>
+<?php } 
+    else :?>
+    <div class="col-sm-6 col-md-6">
+        <div class="alert-message alert-message-danger">
+            <h4><?php esc_html_e('Error Connection', 'product-outside') ?></h4>
+            <p><?php esc_html_e('No connect to your site. You have not configured the connection, to go Settings > Product Outside.' ,'product-outside') ?></p>
+        </div>
+    </div>
+<?php
+    endif;
+endif; ?>
 </div>
+<?php if ($load_more) : ?> 
 <div class="pdo load-more">
     <a href="javascript:void(0)" class="pdo button pdo-load-more<?php echo esc_attr($method == 'client' ? ' display none' : '') ?>" id="button-load-more-<?php echo esc_attr(sanitize_title($title)) ?>" data-page="0"><span><?php esc_html_e('Load more', 'product-outside') ?></span></a>
 </div>
+<?php endif; ?>
 <?php 
     }
 endif;
@@ -274,14 +289,17 @@ add_action( 'vc_before_init', 'conikal_pdo_vc_products_shortcode' );
 function conikal_pdo_vc_products_shortcode() {
     if (is_admin()) {
         $woocommerce    = conikal_woocommerce_api();
-        $categories     = $woocommerce->get('products/categories', array(
-            'page' => 1,
-            'per_page' => 100,
-        ));
+        if ($woocommerce) {
+        
+            $categories     = $woocommerce->get('products/categories', array(
+                'page' => 1,
+                'per_page' => 100,
+            ));
 
-        $category_seclection['All Category'] = 'all';
-        foreach ($categories as $key => $category) {
-            $category_seclection[$category->name] = $category->id;
+            $category_seclection['All Category'] = 'all';
+            foreach ($categories as $key => $category) {
+                $category_seclection[$category->name] = $category->id;
+            }
         }
     } else {
         $category_seclection['All Category'] = 'all';
@@ -538,6 +556,14 @@ function conikal_pdo_vc_products_shortcode() {
                 "heading" => esc_html__('Open in New Tab', 'product-outside'),
                 "param_name" => 'new_tab',
                 "description" => esc_html__('Open in new tab when click on product link.', 'product-outside')
+            ),
+            array(
+                "type" => 'checkbox',
+                "holder" => 'div',
+                "class" => '',
+                "heading" => esc_html__('Load more button', 'product-outside'),
+                "param_name" => 'load_more',
+                "description" => esc_html__('Display load more button below products list', 'product-outside'),
             ),
             array(
                 "type" => 'dropdown',

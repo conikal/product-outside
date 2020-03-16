@@ -1,28 +1,12 @@
-/*
-Theme Name:         G5Plus Auteur
-Theme URI:          http://auteur.g5plus.net/
-Description:        G5Plus Auteur is a premium responsive WordPress theme created especially for shop online with clean and modern design. <a href="http://www.g5plus.net">Visit site</a>
-Version:            2.6
-Author:             g5plus
-Author URI:         http://g5plus.net/
-
-License:            GNU General Public License v2 or later
-License URI:        http://www.gnu.org/licenses/gpl-2.0.html
-
-Tags:         two-columns, three-columns, left-sidebar, right-sidebar, custom-background, custom-header, custom-menu, editor-style, post-formats, rtl-language-support, sticky-post, theme-options, translation-ready, accessibility-ready
-Text Domain:    g5plus-auteur
-Domain Path:    /languages/
-*/
-
 /**
  * Table of Contents:
  *
- * 1.0 - Base FrameWork
- * 2.0 - Core
- * 3.0 - Typography
- * 7.0 - Blog
- * 8.0 - ShortCode
- * 9.0 - Mixins
+ * 1.0 - Custom Grid
+ * 2.0 - Guuter
+ * 3.0 - Blog
+ * 4.0 - product
+ * 5.0 - ShortCode
+ * 6.0 - Alert
  * ----------------------------------------------------------------------------
  */
 
@@ -1801,4 +1785,84 @@ Domain Path:    /languages/
 }
 .product-type-grouped .price .amount:last-child {
   padding-left: 5px;
+}
+
+
+/**
+ * Alert
+ * ----------------------------------------------------------------------------
+ */
+ .alert-message
+{
+    margin: 20px 0;
+    padding: 20px;
+    border-left: 3px solid #eee;
+}
+.alert-message h4
+{
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.alert-message p:last-child
+{
+    margin-bottom: 0;
+}
+.alert-message code
+{
+    background-color: #fff;
+    border-radius: 3px;
+}
+.alert-message-success
+{
+    background-color: #F4FDF0;
+    border-color: #3C763D;
+}
+.alert-message-success h4
+{
+    color: #3C763D;
+}
+.alert-message-danger
+{
+    background-color: #fdf7f7;
+    border-color: #d9534f;
+}
+.alert-message-danger h4
+{
+    color: #d9534f;
+}
+.alert-message-warning
+{
+    background-color: #fcf8f2;
+    border-color: #f0ad4e;
+}
+.alert-message-warning h4
+{
+    color: #f0ad4e;
+}
+.alert-message-info
+{
+    background-color: #f4f8fa;
+    border-color: #5bc0de;
+}
+.alert-message-info h4
+{
+    color: #5bc0de;
+}
+.alert-message-default
+{
+    background-color: #EEE;
+    border-color: #B4B4B4;
+}
+.alert-message-default h4
+{
+    color: #000;
+}
+.alert-message-notice
+{
+    background-color: #FCFCDD;
+    border-color: #BDBD89;
+}
+.alert-message-notice h4
+{
+    color: #444;
 }

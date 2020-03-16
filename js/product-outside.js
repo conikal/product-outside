@@ -4,7 +4,6 @@
 if ($('.product-outside').length) {
 	$('.product-outside').each(function(index) {
 		var id = $(this).attr('data-id');
-		console.log(id)
 		getProductOutside(id);
 	});
 	
@@ -23,7 +22,9 @@ function getProductOutside(id) {
 		page = parseInt(page) + 1;
 	var args = $('#product-outside-' + id).attr('data-args');
 		args = jQuery.parseJSON(args);
+	if (page) {
 		args.page = page;
+	}
 	var classes = $('#product-outside-' + id).attr('data-classes');
 	var newt = $('#product-outside-' + id).attr('data-newt');
 	var target_link = '';
@@ -96,7 +97,12 @@ function getProductOutside(id) {
 	            });
 
 	          	$('#product-outside-' + id).append(html);
-	          	$('#button-load-more-' + id).removeClass('display none');
+	          	
+	          	if (parseInt(resp.products.length) < args.per_page) {
+	          		$('#button-load-more-' + id).addClass('display none').removeClass("button-loading");;
+	          	} else {
+	          		$('#button-load-more-' + id).removeClass('display none');
+	          	}
 	          	$('#button-load-more-' + id).attr('data-page', page).removeClass("button-loading");
 	         } else {
 	         	$('#button-load-more-' + id).addClass('display none').removeClass("button-loading");;
