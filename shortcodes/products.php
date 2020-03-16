@@ -6,7 +6,7 @@
  * @param bool $inherit
  * @return array|mixed|void
  */
-function get_post_columns($inherit = false)
+function conikal_post_columns($inherit = false)
 {
     $config = apply_filters('conikal_options_post_columns', array(
         '1' => '1',
@@ -26,7 +26,7 @@ function get_post_columns($inherit = false)
     return $config;
 }
 
-function get_column_responsive($dependency = array())
+function conikal_column_responsive($dependency = array())
 {
     $responsive = array(
         array(
@@ -34,7 +34,7 @@ function get_column_responsive($dependency = array())
             'heading' => esc_html__('Large Devices', 'product-outside'),
             'description' => esc_html__('Browser Width >= 1200px', 'product-outside'),
             'param_name' => 'columns',
-            'value' => get_post_columns(),
+            'value' => conikal_post_columns(),
             'std' => 3,
             'group' => esc_html__('Responsive', 'product-outside'),
             'dependency' => $dependency
@@ -44,7 +44,7 @@ function get_column_responsive($dependency = array())
             'heading' => esc_html__('Medium Devices', 'product-outside'),
             'param_name' => 'columns_md',
             'description' => esc_html__('Browser Width < 1200px', 'product-outside'),
-            'value' => get_post_columns(),
+            'value' => conikal_post_columns(),
             'std' => 2,
             'group' => esc_html__('Responsive', 'product-outside'),
             'dependency' => $dependency
@@ -54,7 +54,7 @@ function get_column_responsive($dependency = array())
             'heading' => esc_html__('Small Devices', 'product-outside'),
             'param_name' => 'columns_sm',
             'description' => esc_html__('Browser Width < 992px', 'product-outside'),
-            'value' => get_post_columns(),
+            'value' => conikal_post_columns(),
             'std' => 2,
             'group' => esc_html__('Responsive', 'product-outside'),
             'dependency' => $dependency
@@ -64,7 +64,7 @@ function get_column_responsive($dependency = array())
             'heading' => esc_html__('Extra Small Devices', 'product-outside'),
             'param_name' => 'columns_xs',
             'description' => esc_html__('Browser Width < 768px', 'product-outside'),
-            'value' => get_post_columns(),
+            'value' => conikal_post_columns(),
             'std' => 1,
             'group' => esc_html__('Responsive', 'product-outside'),
             'dependency' => $dependency
@@ -74,7 +74,7 @@ function get_column_responsive($dependency = array())
             'heading' => esc_html__('Extra Extra Small Devices', 'product-outside'),
             'param_name' => 'columns_mb',
             'description' => esc_html__('Browser Width < 576px', 'product-outside'),
-            'value' => get_post_columns(),
+            'value' => conikal_post_columns(),
             'std' => 1,
             'group' => esc_html__('Responsive', 'product-outside'),
             'dependency' => $dependency
@@ -555,7 +555,7 @@ function conikal_pdo_vc_products_shortcode() {
                 "description" => esc_html__('Limit result set to products with specified stock status.', 'product-outside')
             ),
         ),
-        get_column_responsive(array(
+        conikal_column_responsive(array(
             'element'=>'layout_style',
             'value'=>array('grid')
         )),
