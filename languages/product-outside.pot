@@ -1,0 +1,185 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Product Outside\n"
+"POT-Creation-Date: 2020-03-14 00:09+0700\n"
+"PO-Revision-Date: 2020-03-14 00:03+0700\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.4\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: product-outside.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+
+#: inc/settings.php:20
+msgid "The Matrix has you."
+msgstr ""
+
+#: inc/settings.php:29
+msgid "Version"
+msgstr ""
+
+#: inc/settings.php:43
+msgid "Consumer key"
+msgstr ""
+
+#: inc/settings.php:57
+msgid "Consumer secret"
+msgstr ""
+
+#: inc/settings.php:86
+msgid "Follow the white rabbit."
+msgstr ""
+
+#: inc/settings.php:105
+msgid "Current latest api version to use to connect."
+msgstr ""
+
+#: inc/settings.php:117 inc/settings.php:130
+msgid ""
+"Generate API credentials (Consumer Key & Consumer Secret) following this"
+msgstr ""
+
+#: inc/settings.php:118 inc/settings.php:131
+msgid "instructions"
+msgstr ""
+
+#: libs/update-checker/Puc/v4p9/Plugin/Ui.php:54
+msgid "View details"
+msgstr ""
+
+#: libs/update-checker/Puc/v4p9/Plugin/Ui.php:77
+#, php-format
+msgid "More information about %s"
+msgstr ""
+
+#: libs/update-checker/Puc/v4p9/Plugin/Ui.php:128
+msgid "Check for updates"
+msgstr ""
+
+#: libs/update-checker/Puc/v4p9/Plugin/Ui.php:213
+#, php-format
+msgctxt "the plugin title"
+msgid "The %s plugin is up to date."
+msgstr ""
+
+#: libs/update-checker/Puc/v4p9/Plugin/Ui.php:215
+#, php-format
+msgctxt "the plugin title"
+msgid "A new version of the %s plugin is available."
+msgstr ""
+
+#: libs/update-checker/Puc/v4p9/Plugin/Ui.php:217
+#, php-format
+msgctxt "the plugin title"
+msgid "Could not determine if updates are available for %s."
+msgstr ""
+
+#: libs/update-checker/Puc/v4p9/Plugin/Ui.php:223
+#, php-format
+msgid "Unknown update checker status \"%s\""
+msgstr ""
+
+#: libs/update-checker/Puc/v4p9/Vcs/PluginUpdateChecker.php:98
+msgid "There is no changelog available."
+msgstr ""
+
+#: shortcodes/products.php:54 shortcodes/products.php:72
+msgid "Add to card"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+#: shortcodes/products.php:91
+msgid "Product Outside"
+msgstr ""
+
+#: shortcodes/products.php:93
+msgid "Display products from another store"
+msgstr ""
+
+#: shortcodes/products.php:95
+msgid "WooCommerce"
+msgstr ""
+
+#: shortcodes/products.php:104
+msgid "Title"
+msgstr ""
+
+#: shortcodes/products.php:107
+msgid "Title of Segment"
+msgstr ""
+
+#: shortcodes/products.php:113
+msgid "Show Number"
+msgstr ""
+
+#: shortcodes/products.php:116
+msgid "Number of Petitions"
+msgstr ""
+
+#: shortcodes/products.php:122
+msgid "Category IDs or Slugs (separated by comma)"
+msgstr ""
+
+#: shortcodes/products.php:125
+msgid "Category ID or Slugs comma-separated list of IDs (this or any children)"
+msgstr ""
+
+#: shortcodes/products.php:131
+msgid "Style"
+msgstr ""
+
+#: shortcodes/products.php:138
+msgid "Style Display of Petition"
+msgstr ""
+
+#: shortcodes/products.php:144
+msgid "Carousel Mode"
+msgstr ""
+
+#: shortcodes/products.php:151
+msgid "Display Petitions follow Carousel style"
+msgstr ""
+
+#: shortcodes/products.php:157
+msgid "Column"
+msgstr ""
+
+#: shortcodes/products.php:167
+msgid "Column of Petitions"
+msgstr ""
+
+#: shortcodes/products.php:173
+msgid "Active hover"
+msgstr ""
+
+#: shortcodes/products.php:175
+msgid "Active hover card"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://www.conikal.com/product-outside"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Display products from another site via Woocommerce REST API"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Conikal"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.conikal.com/"
+msgstr ""
