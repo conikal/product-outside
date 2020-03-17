@@ -27,6 +27,7 @@ function getProductOutside(id) {
 	}
 	var classes = $('#product-outside-' + id).attr('data-classes');
 	var newt = $('#product-outside-' + id).attr('data-newt');
+	var hover = $('#product-outside-' + id).attr('data-hover');
 	var target_link = '';
 	if (newt == 1) {
 		target_link = ' target="_blank"';
@@ -63,7 +64,7 @@ function getProductOutside(id) {
 				                                </a>
 				                            </div>
 				                        </div>`;
-				                            if (id == 1) {
+				                            if (id == 1 || (id == 0 && hover == 0)) {
 				                               return false;
 				                            }
 				                        });
@@ -97,7 +98,7 @@ function getProductOutside(id) {
 	            });
 
 	          	$('#product-outside-' + id).append(html);
-	          	
+
 	          	if (parseInt(resp.products.length) < args.per_page) {
 	          		$('#button-load-more-' + id).addClass('display none').removeClass("button-loading");;
 	          	} else {

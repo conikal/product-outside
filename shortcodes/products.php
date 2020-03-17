@@ -115,6 +115,7 @@ if( !function_exists('conikal_pdo_products_shortcode') ):
             'max_price' => '',
             'stock_status' => 'any',
             'new_tab' => false,
+            'image_hover' => false,
             'load_more' => false,
             'columns' => '3',
             'columns_md' => '2',
@@ -205,80 +206,82 @@ if( !function_exists('conikal_pdo_products_shortcode') ):
         }
         ?>
 
-<?php if ($display_title) : ?>
-    <h2><?php echo esc_html($title) ?></h2>
-<?php endif; ?>
-<div id="product-outside-<?php echo esc_attr(sanitize_title($title)) ?>" data-id="<?php echo esc_attr(sanitize_title($title)) ?>" data-items-container="true" class="gf-blog-inner clearfix layout-grid gf-gutter-30 <?php echo esc_attr($method == 'client' ? 'product-outside' : '') ?>" data-args='<?php echo json_encode($args) ?>' data-classes="<?php echo esc_attr($classes) ?>" data-newt="<?php echo esc_attr($new_tab ? 1 : 0) ?>">
-<?php  if ($method == 'server') :
-    if ($woocommerce) :
-        foreach ($products as $id => $product) { ?>
-    <article class="clearfix product-item-wrap product-content-product <?php echo esc_attr($classes) ?>product type-product post-2130 status-publish first instock product_cat-91 product_tag-93 product_tag-92 has-post-thumbnail shipping-taxable purchasable product-type-simple product-small">
-        <div class="product-item-inner clearfix">
-            <div class="product-thumb">
-                <div class="product-images-hover change-image">
-                    <div class="product-images-hover change-image">
-                        <?php foreach ($product->images as $id => $image) { ?>
-                        <div class="product-thumb-<?php echo esc_attr($id == 0 ? 'primary' : 'secondary') ?>">
-                            <div class="entry-thumbnail">
-                                <a class="entry-thumbnail-overlay" href="<?php echo esc_url($product->permalink) ?>" title="<?php echo esc_html($product->name) ?>"<?php echo esc_attr($new_tab ? ' target="_blank"' : '') ?>>
-                                    <img src="<?php echo esc_url($image->src) ?>" class="img-responsive wp-post-image" alt="<?php echo esc_html($product->name) ?>">
+    <?php if ($display_title) : ?>
+        <h2><?php echo esc_html($title) ?></h2>
+    <?php endif; ?>
+    <div class="pdo">
+        <div id="product-outside-<?php echo esc_attr(sanitize_title($title)) ?>" data-id="<?php echo esc_attr(sanitize_title($title)) ?>" data-items-container="true" class="gf-blog-inner clearfix layout-grid gf-gutter-30 <?php echo esc_attr($method == 'client' ? 'product-outside' : '') ?>" data-args='<?php echo json_encode($args) ?>' data-classes="<?php echo esc_attr($classes) ?>" data-newt="<?php echo esc_attr($new_tab ? 1 : 0) ?>" data-hover="<?php echo esc_attr($image_hover ? 1 : 0) ?>">
+        <?php  if ($method == 'server') :
+            if ($woocommerce) :
+                foreach ($products as $id => $product) { ?>
+            <article class="clearfix product-item-wrap product-content-product <?php echo esc_attr($classes) ?>product type-product post-2130 status-publish first instock product_cat-91 product_tag-93 product_tag-92 has-post-thumbnail shipping-taxable purchasable product-type-simple product-small">
+                <div class="product-item-inner clearfix">
+                    <div class="product-thumb">
+                        <div class="product-images-hover change-image">
+                            <div class="product-images-hover change-image">
+                                <?php foreach ($product->images as $id => $image) { ?>
+                                <div class="product-thumb-<?php echo esc_attr($id == 0 ? 'primary' : 'secondary') ?>">
+                                    <div class="entry-thumbnail">
+                                        <a class="entry-thumbnail-overlay" href="<?php echo esc_url($product->permalink) ?>" title="<?php echo esc_html($product->name) ?>"<?php echo esc_attr($new_tab ? ' target="_blank"' : '') ?>>
+                                            <img src="<?php echo esc_url($image->src) ?>" class="img-responsive wp-post-image" alt="<?php echo esc_html($product->name) ?>">
+                                        </a>
+                                    </div>
+                                </div>
+                                <?php
+                                    if ($id == 1 ||($id == 0 && $image_hover == false)) {
+                                        break;
+                                    }
+                                } ?>
+                            </div>
+                        </div>
+
+                        <div class="product-actions gf-tooltip-wrap" data-tooltip-options="{&quot;placement&quot;:&quot;<?php echo esc_attr($tooltip_position) ?>&quot;}">
+                            <div class="product-action-item add_to_cart_tooltip" data-toggle="tooltip" data-original-title="Add to cart">
+                                <a href="<?php echo esc_url($product->permalink) ?>?add-to-cart=<?php echo esc_attr($product->id) ?>" class="product_type_simple add_to_cart_button" rel="nofollow"<?php echo esc_attr($new_tab ? ' target="_blank"' : '') ?>>
+                                <?php esc_html_e('Add to card', 'product-outside') ?>
                                 </a>
                             </div>
                         </div>
-                        <?php
-                            if ($id == 1) {
-                                break;
-                            }
-                        } ?>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name product_title">
+                            <a class="gsf-link" href="<?php echo esc_url($product->permalink) ?>"<?php echo esc_attr($new_tab ? ' target="_blank"' : '') ?>><?php echo esc_html($product->name) ?></a>
+                        </h4>
+
+                        <span class="price"><span class="woocommerce-Price-amount amount"><?php echo conikal_pdo_price($product->price, $price_args) ?></span>
+                        </span>
+                        <div class="product-description">
+                            <?php echo $product->short_description ?>
+                        </div>
+                        <div class="product-list-actions d-flex align-items-center flex-wrap">
+                            <div class="product-action-item">
+                                <a href="<?php echo esc_url($product->permalink) ?>?add-to-cart=<?php echo esc_attr($product->id) ?>" class="product_type_simple add_to_cart_button ajax_add_to_cart btn" rel="nofollow"<?php echo esc_attr($new_tab ? ' target="_blank"' : '') ?>>
+                                    <?php esc_html_e('Add to card', 'product-outside') ?>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="product-actions gf-tooltip-wrap" data-tooltip-options="{&quot;placement&quot;:&quot;<?php echo esc_attr($tooltip_position) ?>&quot;}">
-                    <div class="product-action-item add_to_cart_tooltip" data-toggle="tooltip" data-original-title="Add to cart">
-                        <a href="<?php echo esc_url($product->permalink) ?>?add-to-cart=<?php echo esc_attr($product->id) ?>" class="product_type_simple add_to_cart_button" rel="nofollow"<?php echo esc_attr($new_tab ? ' target="_blank"' : '') ?>>
-                        <?php esc_html_e('Add to card', 'product-outside') ?>
-                        </a>
-                    </div>
+            </article>
+        <?php } 
+            else :?>
+            <div class="col-sm-6 col-md-6">
+                <div class="alert-message alert-message-danger">
+                    <h4><?php esc_html_e('Error Connection', 'product-outside') ?></h4>
+                    <p><?php esc_html_e('No connect to your site. You have not configured the connection, to go Settings > Product Outside.' ,'product-outside') ?></p>
                 </div>
             </div>
-            <div class="product-info">
-                <h4 class="product-name product_title">
-                    <a class="gsf-link" href="<?php echo esc_url($product->permalink) ?>"<?php echo esc_attr($new_tab ? ' target="_blank"' : '') ?>><?php echo esc_html($product->name) ?></a>
-                </h4>
-
-                <span class="price"><span class="woocommerce-Price-amount amount"><?php echo conikal_pdo_price($product->price, $price_args) ?></span>
-                </span>
-                <div class="product-description">
-                    <?php echo $product->short_description ?>
-                </div>
-                <div class="product-list-actions d-flex align-items-center flex-wrap">
-                    <div class="product-action-item">
-                        <a href="<?php echo esc_url($product->permalink) ?>?add-to-cart=<?php echo esc_attr($product->id) ?>" class="product_type_simple add_to_cart_button ajax_add_to_cart btn" rel="nofollow"<?php echo esc_attr($new_tab ? ' target="_blank"' : '') ?>>
-                            <?php esc_html_e('Add to card', 'product-outside') ?>
-                        </a>
-                    </div>
-                </div>
-            </div>
+        <?php // end shortcode content
+            endif;
+        endif; ?>
         </div>
-    </article>
-<?php } 
-    else :?>
-    <div class="col-sm-6 col-md-6">
-        <div class="alert-message alert-message-danger">
-            <h4><?php esc_html_e('Error Connection', 'product-outside') ?></h4>
-            <p><?php esc_html_e('No connect to your site. You have not configured the connection, to go Settings > Product Outside.' ,'product-outside') ?></p>
+        <?php if ($load_more) : ?> 
+        <div class="pdo load-more">
+            <a href="javascript:void(0)" class="pdo button pdo-load-more<?php echo esc_attr($method == 'client' ? ' display none' : '') ?>" id="button-load-more-<?php echo esc_attr(sanitize_title($title)) ?>" data-page="0"><span><?php esc_html_e('Load more', 'product-outside') ?></span></a>
         </div>
+        <?php endif; ?>
     </div>
-<?php
-    endif;
-endif; ?>
-</div>
-<?php if ($load_more) : ?> 
-<div class="pdo load-more">
-    <a href="javascript:void(0)" class="pdo button pdo-load-more<?php echo esc_attr($method == 'client' ? ' display none' : '') ?>" id="button-load-more-<?php echo esc_attr(sanitize_title($title)) ?>" data-page="0"><span><?php esc_html_e('Load more', 'product-outside') ?></span></a>
-</div>
-<?php endif; ?>
-<?php 
+    <?php // end function
     }
 endif;
 
@@ -545,6 +548,14 @@ function conikal_pdo_vc_products_shortcode() {
                 "heading" => esc_html__('Open in New Tab', 'product-outside'),
                 "param_name" => 'new_tab',
                 "description" => esc_html__('Open in new tab when click on product link.', 'product-outside')
+            ),
+            array(
+                "type" => 'checkbox',
+                "holder" => 'div',
+                "class" => '',
+                "heading" => esc_html__('Image hover', 'product-outside'),
+                "param_name" => 'image_hover',
+                "description" => esc_html__('Flip to secondary image when hovering on product image.', 'product-outside')
             ),
             array(
                 "type" => 'checkbox',
