@@ -128,8 +128,6 @@ if( !function_exists('conikal_pdo_products_shortcode') ):
             'page' => $page,
             'per_page' => $per_page,
             'search' => $search,
-            'exclude' => $exclude,
-            'include' => $include,
             'order' => $order,
             'orderby' => $orderby,
             'slug' => $slug,
@@ -138,6 +136,16 @@ if( !function_exists('conikal_pdo_products_shortcode') ):
             'min_price' => $min_price,
             'max_price' => $max_price,
         );
+
+        if ($exclude) {
+            $exclude = str_replace(' ', '', $exclude);
+            $args = explode(',', $exclude);
+        }
+
+        if ($include) {
+            $include = str_replace(' ', '', $include);
+            $args = explode(',', $include);
+        }
 
         if ($category != 'all') {
             $args['category'] = $category;
