@@ -3,7 +3,7 @@
  * Plugin Name: Product Outside
  * Plugin URI: https://www.conikal.com/product-outside
  * Description: Display products from another site via Woocommerce REST API
- * Version: 1.0.7
+ * Version: 1.0.8
  * Author: Conikal
  * Author URI: https://www.conikal.com/
  * Text Domain: product-outside
@@ -52,9 +52,11 @@ function conikal_pdo_load_plugin_textdomain() {
     load_plugin_textdomain( 'product-outside', false, dirname( PDO_PLUGIN_FILE ) . '/languages' );
 }
 
-require_once dirname( PDO_PLUGIN_FILE ) . '/inc/settings.php'; 
+require_once dirname( PDO_PLUGIN_FILE ) . '/inc/settings.php';
+require_once dirname( PDO_PLUGIN_FILE ) . '/inc/column.php'; 
 require_once dirname( PDO_PLUGIN_FILE ) . '/vendor/autoload.php';
 require_once dirname( PDO_PLUGIN_FILE ) . '/shortcodes/products.php';
+require_once dirname( PDO_PLUGIN_FILE ) . '/inc/register_widgets.php';
 use Automattic\WooCommerce\Client;
 
 if (!function_exists('conikal_woocommerce_api')) :
@@ -248,5 +250,34 @@ if (!function_exists('conikal_pdo_price_format')) :
         }
 
         return apply_filters( 'woocommerce_price_format', $format, $currency_pos );
+    }
+endif;
+
+
+/**
+ * Position currency symbol price
+ *
+ * @return string
+ */
+if (!function_exists('conikal_category_selection')) :
+    function conikal_category_selection() {
+        if (is_admin()) {
+            $woocommerce    = conikal_woocommerce_api();
+            if ($woocommerce) {
+                $categories     = $woocommerce->get('products/categories', array(
+                    'page' => 1,
+                    'per_page' => 100,
+                ));
+
+                $category_seclection['All Category'] = 'all';
+                foreach ($categories as $key => $category) {
+                    $category_seclection[$category->name] = $category->id;
+                }
+            }
+        } else {
+            $category_seclection['All Category'] = 'all';
+        }
+
+        return $category_seclection;
     }
 endif;
